@@ -1,0 +1,46 @@
+<div class="wrapper">
+  <mat-card>
+    <h3>Registration</h3>
+    <form [formGroup]="form">
+      <div class="form-control">
+        <mat-form-field>
+          <input type="text" formControlName="fullName" placeholder="Full Name" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="form-control">
+        <mat-form-field>
+          <input type="email" formControlName="email" placeholder="Email" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="form-control">
+        <mat-form-field>
+          <input type="number" formControlName="age" placeholder="Age" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="form-control">
+        <mat-form-field>
+          <mat-label>Country</mat-label>
+          <mat-select formControlName="country">
+            <mat-option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-control">
+        <mat-form-field>
+          <mat-label>Driver's License Type</mat-label>
+          <mat-select formControlName="licenseType">
+            <mat-option *ngFor="let type of licenseTypes" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="actions">
+        <button mat-raised-button [disabled]="isDisabled || isNotWorkingHour">Submit</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
